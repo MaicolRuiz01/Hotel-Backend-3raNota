@@ -1,4 +1,4 @@
-package Controlador;
+package com.example.demo.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.controller.entidades.Reserva;
+import com.example.demo.controller.repositorio.ReservaRepository;
 
-
-import Entidades.Reserva;
-import Repositorio.ReservaRepository;
-
-@Controller
+@RestController
 @RequestMapping("/reserva")
 public class ReservaController {
 
 	@Autowired
 	private ReservaRepository reservarepo;
+
 	
 	//obtiene todas las reservas
 	@GetMapping
@@ -31,6 +31,7 @@ public class ReservaController {
 
 		List<Reserva> reservas = reservarepo.findAll();
 		return reservas;
+		
 	}
 
 	// obtiene la reserva por el id

@@ -1,10 +1,9 @@
-package Controlador;
+package com.example.demo.controller;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,18 +11,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import Entidades.Cliente;
-import Repositorio.ClienteRepository;
+import com.example.demo.controller.entidades.Cliente;
+import com.example.demo.controller.repositorio.ClienteRepository;
 
-@Controller
-@RequestMapping("/clientes")
+@RestController
+@RequestMapping(path = "/cliente")
 public class ClienteController {
 	
 	@Autowired
 	private ClienteRepository clienterepo;
 	
-	@GetMapping
+	
+	@GetMapping("/")
 	public List<Cliente> getAllClientes() {
 
 		List<Cliente> clientes = clienterepo.findAll();
