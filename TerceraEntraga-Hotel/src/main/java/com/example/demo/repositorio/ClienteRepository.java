@@ -7,5 +7,7 @@ import com.example.demo.model.Cliente;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente ,Long > {
+	
+	Cliente findClienteByUsername(String username);
 
 }

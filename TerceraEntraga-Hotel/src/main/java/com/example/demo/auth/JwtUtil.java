@@ -33,11 +33,11 @@ public class JwtUtil {
 
     public String createToken(Cliente cliente) {
         Claims claims = Jwts.claims().setSubject(cliente.getUsername());
-        claims.put("firstName",cliente.getNombre());
-        claims.put("lastName",cliente.getApellido());
-        claims.put("lastName",cliente.getNacionalidad());
-        claims.put("lastName",cliente.getNumTelefono());
-        claims.put("lastName",cliente.getFechaNac());
+        claims.put("nombre",cliente.getNombre());
+        claims.put("apellido",cliente.getApellido());
+        claims.put("nacionalidad",cliente.getNacionalidad());
+        claims.put("telefono",cliente.getNumTelefono());
+        claims.put("fechaNac",cliente.getFechaNac());
         
         Date tokenCreateTime = new Date();
         Date tokenValidity = new Date(tokenCreateTime.getTime() + TimeUnit.MINUTES.toMillis(accessTokenValidity));
