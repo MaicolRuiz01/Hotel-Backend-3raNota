@@ -6,10 +6,12 @@ import java.util.List;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Cliente;
 import com.example.demo.repositorio.ClienteRepository;
 
+@Service
 public class CustomClienteDetailsService implements UserDetailsService{
 	
 	private final ClienteRepository clienteRepository;
