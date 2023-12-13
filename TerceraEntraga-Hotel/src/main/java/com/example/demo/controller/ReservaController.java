@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.controller.entidades.Reserva;
-import com.example.demo.controller.repositorio.ReservaRepository;
+import com.example.demo.model.Reserva;
+import com.example.demo.repositorio.ReservaRepository;
 
 @RestController
 @RequestMapping("/reserva")

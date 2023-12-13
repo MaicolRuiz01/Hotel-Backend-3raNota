@@ -1,4 +1,4 @@
-package com.example.demo.controller.entidades;
+package com.example.demo.model;
 
 import java.util.ArrayList;
 
@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.ArrayList;
+
 import java.util.List;
 
 @Data
@@ -32,6 +32,10 @@ public class Cliente {
 	private String nombre;
 	@Column(name="apellido")
 	private String apellido;
+	@Column(name="username")
+	private String username;
+	@Column(name="password")
+	private String password;
 	@Column(name="fecha_nac")
 	private String fechaNac;
 	@Column(name="nacionalidad")
@@ -39,11 +43,17 @@ public class Cliente {
 	@Column(name="num_telefono")
 	private String numTelefono;
 	
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="id_reserva")
 	private List<Reserva> reservas = new ArrayList<>();
 	
 	public int getNumeroReservas() {
         return this.reservas.size();
+    }
+	
+	public Cliente(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 }
